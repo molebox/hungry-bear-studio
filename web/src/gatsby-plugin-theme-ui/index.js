@@ -7,21 +7,23 @@ export default {
 	useCustomProperties: true,
 	colors: {
 		// these are the default light colors
-		text: '#302A2C',
-		background: '#A5A5A5',
-		orange: '#DF7334',
+		text: '#FFFFFF',
+		darkText: '#000000',
+		background: '#212121',
+		primary: '#DF7334',
+		secondary: '#A5A5A5 '
 
-		modes: {
-			// this is the dark color mode colors
-			dark: {
-				text: colors.orange,
-				background: colors.text,
-			},
-		},
+		// modes: {
+		// 	// this is the dark color mode colors
+		// 	dark: {
+		// 		text: colors.orange,
+		// 		background: colors.text,
+		// 	},
+		// },
 	},
 	fonts: {
 		body: 'Open Sans',
-		heading: 'MarketDeco',
+		heading: 'Poppins',
 	},
 	fontWeights: {
 		body: 300,

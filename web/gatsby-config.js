@@ -2,7 +2,7 @@ module.exports = {
     siteMetadata: {
         title: 'Hungry Bear Studio',
         description: 'Hungry Bear Studio Web and Mobile Design',
-        siteUrl: '',
+        siteUrl: 'https://hungrybearstudio.com',
         twitter: 'studio_hungry'
     },
     plugins: [
@@ -10,6 +10,7 @@ module.exports = {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
               fonts: [
+                'Poppins',
                 `Open Sans`,
                 `source sans pro\:300,400,400i,700` 
               ]
@@ -21,7 +22,7 @@ module.exports = {
                 title: 'Hungry Bear Studio',
                 description: 'Hungry Bear Studio Web and Mobile Design',
                 author: 'Rich Haines',
-                siteUrl: '',
+                siteUrl: 'https://hungrybearstudio.com',
                 social: {
                     twitter: 'studio_hungry'
                 }

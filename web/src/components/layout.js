@@ -4,13 +4,19 @@ import { Global, css } from '@emotion/core';
 
 const Container = styled.div`
 	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas: 
+	"navbar" 
+	"main" 
+	"footer";
 
 	height: 100vh;
 	width: 100vw;
 
-	/* 48em = 768px DESKTOP */
-	@media (min-width: 48em) {
-	}
+	// /* 48em = 768px DESKTOP */
+	// @media (min-width: 48em) {
+	// }
 `;
 
 const Layout = ({ children }) => (
@@ -32,6 +38,8 @@ const Layout = ({ children }) => (
 					overflow-y: scroll;
 					-webkit-overflow-scrolling: touch;
 					overflow-x: hidden;
+
+					
 				}
 			`}
 		/>
