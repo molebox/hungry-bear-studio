@@ -11,7 +11,7 @@ export default {
 		darkText: '#000000',
 		background: '#212121',
 		primary: '#DF7334',
-		secondary: '#A5A5A5 '
+		secondary: '#A5A5A5 ',
 
 		// modes: {
 		// 	// this is the dark color mode colors
@@ -33,6 +33,7 @@ export default {
 	lineHeights: {
 		body: '110%',
 		heading: 1.125,
+		logo: '82px',
 	},
 	letterSpacing: {
 		body: '2px',

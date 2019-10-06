@@ -6,6 +6,13 @@ module.exports = {
         twitter: 'studio_hungry'
     },
     plugins: [
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `assets`,
+          path: `${__dirname}/src/assets/`,
+        },
+      },
         {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
@@ -28,6 +35,8 @@ module.exports = {
                 }
             }
         },
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-sharp',
         `gatsby-plugin-emotion`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-robots-txt`,
