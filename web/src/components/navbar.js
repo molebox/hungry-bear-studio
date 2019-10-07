@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
+import github from '../static/images/github.png';
+import twitter from '../static/images/twitter.png';
 
 const Nav = styled.nav`
 	grid-area: navbar;
@@ -12,20 +14,16 @@ const Nav = styled.nav`
 	word-spacing: 0.5em;
 `;
 
-// const GithubLink = styled.img`
-
-//     width: 31px;
-//     height: 26px;
-//     margin-right: 5em;
-//     background-image: url('../assets/github.png');
-// `;
-
 const Links = styled.div`
 	width: 100px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-right: 15em;
+
+	& > a > img:hover {
+		filter: brightness(50%);
+	}
 `;
 
 const Navbar = () => {
@@ -50,8 +48,12 @@ const Navbar = () => {
 				HUNGRY BEAR STUDIO
 			</h1>
 			<Links>
-				<a>twitter</a>
-				<a>github</a>
+				<a href="https://twitter.com/studio_hungry">
+					<img src={twitter} />
+				</a>
+				<a href="https://github.com/molebox?tab=repositories">
+					<img src={github} />
+				</a>
 			</Links>
 		</Nav>
 	);

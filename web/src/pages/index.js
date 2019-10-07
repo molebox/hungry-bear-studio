@@ -9,13 +9,6 @@ import Footer from '../components/footer';
 import { css } from '@emotion/core';
 
 const Container = styled.div`
-	// display: grid;
-	// grid-template-columns: 0.5fr 2fr 0.5fr;
-	// grid-template-rows: 0.3fr 1fr;
-	// grid-template-areas:
-	// "."
-	// ". content .";
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -41,13 +34,10 @@ const OrangeBox = styled.div`
 `;
 
 const Polygon = styled.div`
-	// width: 440px;
-	// height: 250px;
 	width: 440px;
 	height: 100px;
 	background: #df7334;
 	border: 2px solid #ffffff;
-	// clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
 	transform: skew(-20deg);
 
 	margin: 0.5em;
@@ -75,7 +65,6 @@ const Links = styled.div`
 		content: '';
 		display: block;
 		width: 0%;
-		// padding-top: 1em;
 		border-bottom: 2px solid white;
 		transition: 0.5s;
 		position: absolute;
@@ -191,7 +180,6 @@ const Index = () => {
 									fontFamily: 'heading',
 									fontSize: [2],
 									fontWeight: 'body',
-									marginLeft: '5em',
 									gridColumn: '1',
 								}}
 							>
@@ -204,7 +192,6 @@ const Index = () => {
 									fontFamily: 'heading',
 									fontSize: [2],
 									fontWeight: 'body',
-									marginLeft: '5em',
 									marginTop: '1em',
 									gridColumn: '2',
 								}}
