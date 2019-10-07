@@ -16,35 +16,38 @@ const Container = styled.div`
 `;
 
 const ContentContainer = styled.section`
-	display: grid;
-	grid-template-columns: 0.5fr 1fr 0.5fr;
-	grid-template-rows: auto 0.5fr;
-	grid-template-areas:
-		'. content .'
-		'. links .';
-
-	background: #ffffff;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 20px;
-
-	height: 30em;
-	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
-const Header = styled.div`
-	grid-area: header;
+const Card = styled.section`
+	background: #ffffff;
+	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	border-radius: 20px;
 
+	width: 645px;
+	height: 450px;
+`;
+
+const Images = styled.div`
+	height: 50%;
 	border: red solid 3px;
 `;
 
 const Content = styled.div`
-	grid-area: content;
+	height: 30%;
+
+	margin-right: 2em;
+	margin-left: 2em;
 `;
 
 const Links = styled.div`
-	grid-area: links;
+	height: 20%;
 
-	border: blue solid 3px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 `;
 
 export const Polygon = styled.div`
@@ -64,6 +67,26 @@ export const Polygon = styled.div`
 	& > div {
 		transform: skew(20deg);
 	}
+`;
+
+const Button = styled.button`
+	background: #212121;
+	border-radius: 5px;
+	width: 130px;
+	height: 45px;
+	padding: 1em;
+	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+
+	// &:hover {
+	// 	background: #A5A5A5;
+	// 	color: #000000;
+	// }
 `;
 
 const Projects = () => {
@@ -88,9 +111,48 @@ const Projects = () => {
 						</h1>
 					</Polygon>
 					<ContentContainer>
-						<Header></Header>
-						<Content>content here</Content>
-						<Links>links here</Links>
+						<Card>
+							<Images>images</Images>
+							<Content>
+								<p>
+									A clean and simple SPA for an architect. Includes Instagram feed. Backend support is provided via
+									Sanity. Created with JavaScript, React, Gatsby, Sanity and CSS Grid. Utilizes Gatsby Themes
+								</p>
+							</Content>
+
+							<Links>
+								<Button
+									sx={{
+										fontWeight: 'heading',
+										fontFamily: 'heading',
+										letterSpacing: 'body',
+										':hover': {
+											color: 'darkText',
+											backgroundColor: 'primary',
+											fontFamily: 'heading',
+											fontWeight: 'bold',
+										},
+									}}
+								>
+									VIEW CODE
+								</Button>
+								<Button
+									sx={{
+										fontWeight: 'heading',
+										fontFamily: 'heading',
+										letterSpacing: 'body',
+										':hover': {
+											color: 'darkText',
+											backgroundColor: 'primary',
+											fontFamily: 'heading',
+											fontWeight: 'bold',
+										},
+									}}
+								>
+									VIEW SITE
+								</Button>
+							</Links>
+						</Card>
 					</ContentContainer>
 				</Container>
 			</Main>
