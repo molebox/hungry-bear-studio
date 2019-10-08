@@ -6,7 +6,19 @@ import Navbar from './../components/navbar';
 import Main from './../components/main';
 import Footer from './../components/footer';
 
+const OuterContainer = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr auto 1fr 1fr;
+	// grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas: '. leftNav content rightNav .';
+
+	height: 100%;
+`;
+
 const Container = styled.div`
+	grid-area: content;
+	grid-column: 3;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -25,21 +37,28 @@ const Card = styled.section`
 	background: #ffffff;
 	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
 	border-radius: 20px;
+	padding: 1em;
 
 	width: 645px;
 	height: 450px;
 `;
 
 const Images = styled.div`
-	height: 50%;
-	border: red solid 3px;
+	height: 60%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 const Content = styled.div`
-	height: 30%;
+	height: 20%;
 
-	margin-right: 2em;
-	margin-left: 2em;
+	// display: flex;
+	// justify-content: center;
+	// align-content: center;
+	// text-align: center;
+	margin: 0 1em 0 1em;
 `;
 
 const Links = styled.div`
@@ -89,72 +108,93 @@ const Button = styled.button`
 	// }
 `;
 
+const LeftNav = styled.div`
+	grid-area: leftNav;
+	grid-column: 2;
+`;
+
+const RightNav = styled.div`
+	grid-area: rightNav;
+	grid-column: 4;
+`;
+
 const Projects = () => {
 	return (
 		<Layout>
 			<Navbar />
 			<Main>
-				<Container>
-					<Polygon>
-						<h1
-							sx={{
-								fontFamily: 'heading',
-								fontSize: [5],
-								fontWeight: 'body',
-								color: 'text',
-								letterSpacing: 'body',
-								lineHeight: 'logo',
-								textShadow: '5px 9px 13px #000',
-							}}
-						>
-							PROJECTS
-						</h1>
-					</Polygon>
-					<ContentContainer>
-						<Card>
-							<Images>images</Images>
-							<Content>
-								<p>
-									A clean and simple SPA for an architect. Includes Instagram feed. Backend support is provided via
-									Sanity. Created with JavaScript, React, Gatsby, Sanity and CSS Grid. Utilizes Gatsby Themes
-								</p>
-							</Content>
+				<OuterContainer>
+					<LeftNav>left</LeftNav>
+					<Container>
+						<Polygon>
+							<h1
+								sx={{
+									fontFamily: 'heading',
+									fontSize: [5],
+									fontWeight: 'body',
+									color: 'text',
+									letterSpacing: 'body',
+									lineHeight: 'logo',
+									textShadow: '5px 9px 13px #000',
+								}}
+							>
+								PROJECTS
+							</h1>
+						</Polygon>
+						<ContentContainer>
+							<Card>
+								<Images>
+									<div style={{ border: '1px solid red', width: '80%', height: '80%' }}></div>
+								</Images>
+								<Content>
+									<p
+										sx={{
+											fontFamily: 'body',
+											flexBasis: 'center',
+										}}
+									>
+										A clean and simple SPA for an architect. Includes Instagram feed. Backend support is provided via
+										Sanity. Created with JavaScript, React, Gatsby, Sanity and CSS Grid. Utilizes Gatsby Themes
+									</p>
+								</Content>
 
-							<Links>
-								<Button
-									sx={{
-										fontWeight: 'heading',
-										fontFamily: 'heading',
-										letterSpacing: 'body',
-										':hover': {
-											color: 'darkText',
-											backgroundColor: 'primary',
+								<Links>
+									<Button
+										sx={{
+											fontWeight: 'heading',
 											fontFamily: 'heading',
-											fontWeight: 'bold',
-										},
-									}}
-								>
-									VIEW CODE
-								</Button>
-								<Button
-									sx={{
-										fontWeight: 'heading',
-										fontFamily: 'heading',
-										letterSpacing: 'body',
-										':hover': {
-											color: 'darkText',
-											backgroundColor: 'primary',
+											letterSpacing: 'body',
+											':hover': {
+												color: 'darkText',
+												backgroundColor: 'primary',
+												fontFamily: 'heading',
+												fontWeight: 'bold',
+											},
+										}}
+									>
+										VIEW CODE
+									</Button>
+									<Button
+										sx={{
+											fontWeight: 'heading',
 											fontFamily: 'heading',
-											fontWeight: 'bold',
-										},
-									}}
-								>
-									VIEW SITE
-								</Button>
-							</Links>
-						</Card>
-					</ContentContainer>
-				</Container>
+											letterSpacing: 'body',
+											':hover': {
+												color: 'darkText',
+												backgroundColor: 'primary',
+												fontFamily: 'heading',
+												fontWeight: 'bold',
+											},
+										}}
+									>
+										VIEW SITE
+									</Button>
+								</Links>
+							</Card>
+						</ContentContainer>
+					</Container>
+					<RightNav>right</RightNav>
+				</OuterContainer>
 			</Main>
 			<Footer />
 		</Layout>
