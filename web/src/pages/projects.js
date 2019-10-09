@@ -7,12 +7,15 @@ import Main from './../components/main';
 import Footer from './../components/footer';
 
 const OuterContainer = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr auto 1fr 1fr;
-	// grid-template-rows: 1fr 1fr 1fr;
-	grid-template-areas: '. leftNav content rightNav .';
+	// display: grid;
+	// grid-template-columns: 1fr 1fr auto 1fr 1fr;
+	// // grid-template-rows: 1fr 1fr 1fr;
+	// grid-template-areas: '. leftNav content rightNav .';
 
-	height: 100%;
+	// height: 100%;
+
+	// width: 1440px;
+	// border: solid red 2px;
 `;
 
 const Container = styled.div`

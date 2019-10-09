@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "api": {
+    "projectId": "olstal9u",
+    "dataset": "portfolio"
+  },
+  "project": {
+    "name": "hungry-bear-studio"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
