@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import React from 'react';
 import styled from '@emotion/styled';
 import Layout from './../components/layout';
 import Navbar from './../components/navbar';
@@ -66,8 +67,8 @@ const MainContainer = styled.div`
 `;
 
 const ProjectImage = styled.div`
-	width: 500px;
-	height: 600px;
+	width: 600px;
+	height: 500px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -88,16 +89,16 @@ const ProjectImage = styled.div`
 		display: flex;
 		position: absolute;
 		overflow: hidden;
-		height: 460px;
-		width: 340px;
+		height: 360px;
+		width: 440px;
 		box-shadow: 0px 0px 40px rgba(0, 0, 10, 0.25);
 
 		li {
-			height: 460px;
-			width: 340px;
+			height: 360px;
+			width: 440px;
 			img {
-				height: 460px;
-				width: 340px;
+				height: 360px;
+				width: 440px;
 			}
 		}
 	}
@@ -117,7 +118,7 @@ const ProjectDescription = styled.div`
 		li {
 			width: 500px;
 			height: 400px;
-			color: $text;
+			color: black;
 			display: flex;
 			align-items: center;
 			position: absolute;
@@ -262,8 +263,9 @@ const Description = styled.div`
 // `;
 
 const Projects = () => {
-	const imagesRef = React.useRef(null);
-	const projectRef = React.useRef(null);
+	let imagesRef = React.useRef(null);
+	let projectRef = React.useRef(null);
+	const imageWidth = 340;
 
 	const [isActive, setIsActive] = React.useState({
 		currentActive: true,
@@ -324,32 +326,33 @@ const Projects = () => {
 			slideLeft(2, 0);
 			fadeOut(0, 1);
 			fadeIn(1, 1);
-		} else if (imagesRef.children[1].classList.contains('active')) {
-			setIsActive({ isActive2: false, isActive3: true });
-			//Image transition
-			slideRight(0, 1);
-			slideLeft(1, 1, 2);
-			slideLeft(2, 1, 2);
-			scale(2, 1);
-			//content transition
-			fadeOut(1, 1);
-			fadeIn(2, 1);
-		} else if (imagesRef.children[2].classList.contains('active')) {
-			setIsActive({ isActive1: true, isActive3: false });
-			//Image transition
-			slideLeft(2, 1, 3);
-			slideLeft(0, 1, 0);
-			slideLeft(1, 0, 0);
-			scale(0, 1);
-			//content transition
-			fadeOut(2, 1);
-			fadeIn(0, 1);
 		}
+		// else if (imagesRef.children[index + 1].classList.contains('active')) {
+		// 	setIsActive({ isActive: !isActive });
+		// 	//Image transition
+		// 	slideRight(0, 1);
+		// 	slideLeft(1, 1, 2);
+		// 	slideLeft(2, 1, 2);
+		// 	scale(2, 1);
+		// 	//content transition
+		// 	fadeOut(1, 1);
+		// 	fadeIn(2, 1);
+		// } else if (imagesRef.children[2].classList.contains('active')) {
+		// 	setIsActive({ isActive1: true, isActive3: false });
+		// 	//Image transition
+		// 	slideLeft(2, 1, 3);
+		// 	slideLeft(0, 1, 0);
+		// 	slideLeft(1, 0, 0);
+		// 	scale(0, 1);
+		// 	//content transition
+		// 	fadeOut(2, 1);
+		// 	fadeIn(0, 1);
+		// }
 	};
 
 	const prevSlide = (index) => {
 		if (imagesRef.children[index].classList.contains('active')) {
-			setIsActive({ isActive1: false, isActive3: true });
+			setIsActive({ currentActive: false, previousActive: true });
 			//Image transition
 			slideLeft(2, 0, 3);
 			slideLeft(2, 1, 2);
@@ -359,27 +362,28 @@ const Projects = () => {
 			//content transtion
 			fadeOut(0, 1);
 			fadeIn(2, 1);
-		} else if (imagesRef.children[1].classList.contains('active')) {
-			setIsActive({ isActive2: false, isActive1: true });
-			//Image transition
-			slideLeft(0, 0);
-			slideRight(0, 1, 0);
-			slideRight(1, 1, 0);
-			slideRight(2, 1, 2);
-			scale(0, 1);
-			//content transtion
-			fadeOut(1, 1);
-			fadeIn(0, 1);
-		} else if (imagesRef.children[2].classList.contains('active')) {
-			setIsActive({ isActive2: true, isActive3: false });
-			slideLeft(2, 1);
-			slideLeft(1, 0, 2);
-			slideLeft(1, 1);
-			scale(1, 1);
-			//content transtion
-			fadeOut(2, 1);
-			fadeIn(1, 1);
 		}
+		// else if (imagesRef.children[1].classList.contains('active')) {
+		// 	setIsActive({ isActive2: false, isActive1: true });
+		// 	//Image transition
+		// 	slideLeft(0, 0);
+		// 	slideRight(0, 1, 0);
+		// 	slideRight(1, 1, 0);
+		// 	slideRight(2, 1, 2);
+		// 	scale(0, 1);
+		// 	//content transtion
+		// 	fadeOut(1, 1);
+		// 	fadeIn(0, 1);
+		// } else if (imagesRef.children[2].classList.contains('active')) {
+		// 	setIsActive({ isActive2: true, isActive3: false });
+		// 	slideLeft(2, 1);
+		// 	slideLeft(1, 0, 2);
+		// 	slideLeft(1, 1);
+		// 	scale(1, 1);
+		// 	//content transtion
+		// 	fadeOut(2, 1);
+		// 	fadeIn(1, 1);
+		// }
 	};
 
 	return (
@@ -388,12 +392,20 @@ const Projects = () => {
 			<Main>
 				<ProjectSection>
 					<ProjectContainer>
-						<Arrow className="left">Left</Arrow>
+						<Arrow onClick={prevSlide} className="left">
+							Left
+						</Arrow>
 						<MainContainer>
-							<ProjectImage>Image</ProjectImage>
+							<ProjectImage>
+								<ul ref={(element) => (imagesRef = element)}>
+									<li className={isActive ? 'active' : ''}>
+										<img src="" alt="" />
+									</li>
+								</ul>
+							</ProjectImage>
 							<ProjectDescription>
-								<ul>
-									<li>
+								<ul ref={(element) => (projectRef = element)}>
+									<li className={isActive ? 'active' : ''}>
 										<div className="content-inner">
 											<Title>Tim Deacon Architect</Title>
 											<Description>
@@ -405,7 +417,9 @@ const Projects = () => {
 								</ul>
 							</ProjectDescription>
 						</MainContainer>
-						<Arrow className="right">Right</Arrow>
+						<Arrow onClick={nextSlide} className="right">
+							Right
+						</Arrow>
 					</ProjectContainer>
 				</ProjectSection>
 			</Main>
