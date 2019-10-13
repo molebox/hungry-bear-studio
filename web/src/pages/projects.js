@@ -8,6 +8,11 @@ import Main from './../components/main';
 import Footer from './../components/footer';
 
 import { TweenLite, Power3 } from 'gsap';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import PortableText from '@sanity/block-content-to-react';
+import LeftArrow from '../static/images/arrow-left.png';
+import RightArrow from '../static/images/arrow-right.png';
 
 // https://github.com/wrongakram/gsap-slider/blob/master/src/App.js
 
@@ -16,22 +21,11 @@ const ProjectSection = styled.section`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	&:after {
-	content: "";
-	position: absolute;
-	width: 900px;
-	height: 550px;
-	background: #f2f2f6;
-	right: 0;
-	bottom: 0;
-	opacity: 0.8;
-	z-index: -10;
 `;
 
 const ProjectContainer = styled.div`
-	width: 1280px;
-	min-width: 1280px;
+	width: 1300px;
+	min-width: 1300px;
 	height: 600px;
 	position: relative;
 `;
@@ -64,11 +58,14 @@ const MainContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	height: 600px;
+
+	border: 1px solid white;
 `;
 
 const ProjectImage = styled.div`
 	width: 600px;
 	height: 500px;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -78,7 +75,7 @@ const ProjectImage = styled.div`
 		position: absolute;
 		width: 200px;
 		height: 200px;
-		background: #3f56da;
+		background: white;
 		left: 140px;
 		top: 0;
 		border-radius: 100%;
@@ -96,7 +93,7 @@ const ProjectImage = styled.div`
 		li {
 			height: 360px;
 			width: 440px;
-			img {
+			.img {
 				height: 360px;
 				width: 440px;
 			}
@@ -118,13 +115,18 @@ const ProjectDescription = styled.div`
 		li {
 			width: 500px;
 			height: 400px;
-			color: black;
+
+			color: white;
 			display: flex;
 			align-items: center;
 			position: absolute;
 			opacity: 0;
 
-			.content-inner {
+			&:nth-child(1) {
+				opacity: 1;
+			}
+
+			.contentInner {
 				width: 500px;
 			}
 		}
@@ -132,10 +134,10 @@ const ProjectDescription = styled.div`
 `;
 
 const Title = styled.div`
-	font-size: 26px;
-	letter-spacing: 0.88px;
+	// font-size: 26px;
+	// letter-spacing: 0.88px;
 	line-height: 40px;
-	font-weight: 700;
+	// font-weight: 700;
 	margin-bottom: 16px;
 	color: white;
 `;
@@ -263,6 +265,8 @@ const Description = styled.div`
 // `;
 
 const Projects = () => {
+	const projectInfo = useStaticQuery(query);
+	const projects = projectInfo.allSanityProject.edges;
 	let imagesRef = React.useRef(null);
 	let projectRef = React.useRef(null);
 	const imageWidth = 340;
@@ -273,6 +277,8 @@ const Projects = () => {
 	});
 
 	React.useEffect(() => {
+		console.log({ imagesRef });
+		console.log({ projectRef });
 		TweenLite.to(projectRef.children[0], 0, {
 			opacity: 1,
 		});
@@ -392,33 +398,47 @@ const Projects = () => {
 			<Main>
 				<ProjectSection>
 					<ProjectContainer>
-						<Arrow onClick={prevSlide} className="left">
-							Left
+						<Arrow onClick={prevSlide} className="arrows left">
+							<img src={LeftArrow} alt="An arrow poiting left" />
 						</Arrow>
-						<MainContainer>
-							<ProjectImage>
-								<ul ref={(element) => (imagesRef = element)}>
-									<li className={isActive ? 'active' : ''}>
-										<img src="" alt="" />
-									</li>
-								</ul>
-							</ProjectImage>
-							<ProjectDescription>
-								<ul ref={(element) => (projectRef = element)}>
-									<li className={isActive ? 'active' : ''}>
-										<div className="content-inner">
-											<Title>Tim Deacon Architect</Title>
-											<Description>
-												A clean and simple SPA for an architect. Includes Instagram feed. Backend support is provided
-												via Sanity. Created with JavaScript, React, Gatsby, Sanity and CSS Grid. Utilizes Gatsby Themes
-											</Description>
-										</div>
-									</li>
-								</ul>
-							</ProjectDescription>
-						</MainContainer>
-						<Arrow onClick={nextSlide} className="right">
-							Right
+						{projects.map(({ node }) => (
+							<MainContainer>
+								<ProjectImage>
+									<ul ref={(element) => (imagesRef = element)}>
+										<li className={isActive ? 'active' : ''}>
+											<Img className="img" fluid={node.projectImage.asset.fluid} alt={node.title} />
+										</li>
+									</ul>
+								</ProjectImage>
+								<ProjectDescription>
+									<ul ref={(element) => (projectRef = element)}>
+										<li className={isActive.currentActive ? 'active' : ''}>
+											<div className="contentInner">
+												<Title
+													sx={{
+														fontFamily: 'Poppins',
+														fontSize: [3],
+														letterSpacing: 'text',
+													}}
+												>
+													{node.title}
+												</Title>
+												<Description
+													sx={{
+														fontFamily: 'body',
+														fontSize: [2],
+													}}
+												>
+													<PortableText blocks={node._rawDescription} />
+												</Description>
+											</div>
+										</li>
+									</ul>
+								</ProjectDescription>
+							</MainContainer>
+						))}
+						<Arrow onClick={nextSlide} className="arrows right">
+							<img src={RightArrow} alt="An arrow poiting right" />
 						</Arrow>
 					</ProjectContainer>
 				</ProjectSection>
@@ -427,6 +447,32 @@ const Projects = () => {
 		</Layout>
 	);
 };
+
+export const query = graphql`
+	query MyProjectsQuery {
+		allSanityProject {
+			edges {
+				node {
+					_rawDescription
+					packageLink
+					title
+					slug {
+						current
+					}
+					githubLink
+					exampleSiteLink
+					projectImage {
+						asset {
+							fluid {
+								...GatsbySanityImageFluid
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`;
 
 // const Projects = () => {
 // 	return (

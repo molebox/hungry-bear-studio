@@ -1,3 +1,10 @@
+let activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development" || "production"
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
     siteMetadata: {
         title: 'Hungry Bear Studio',
@@ -6,6 +13,17 @@ module.exports = {
         twitter: 'studio_hungry'
     },
     plugins: [
+      {
+        resolve: 'gatsby-source-sanity',
+        options: {
+          projectId: process.env.SANITY_PROJECT_ID,
+          dataset: process.env.SANITY_PROJECT_DATASET,
+          watchMode: true
+          // a token with read permissions is required
+          // if you have a private dataset
+          // token: process.env.MY_SANITY_TOKEN
+        }
+      },
         {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
