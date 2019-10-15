@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import React from 'react';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -157,6 +158,33 @@ export const Polygon = styled.div`
 	}
 `;
 
+const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 1em;
+`;
+
+const Button = styled.button`
+	background: #212121;
+	border-radius: 5px;
+	width: 130px;
+	height: 45px;
+	padding: 1em;
+	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+
+	&:hover {
+		background: #a5a5a5;
+		color: #000000;
+	}
+`;
+
 const ProjectIndex = () => {
 	const projects = useStaticQuery(query);
 	const projectList = projects.allSanityProject.edges;
@@ -198,7 +226,7 @@ const ProjectIndex = () => {
 											letterSpacing: 'body',
 											borderBottom: 'solid 0.1em',
 											borderColor: 'text',
-											padding: '0.5em',
+											padding: '1em',
 										}}
 									>
 										{node.title}
@@ -215,6 +243,23 @@ const ProjectIndex = () => {
 									/>
 								</div>
 							</Description>
+							<ButtonContainer>
+								{node.githubLink ? (
+									<>
+										<Button>VIEW CODE</Button>
+									</>
+								) : null}
+								{node.exampleSiteLink ? (
+									<>
+										<Button>VIEW SITE</Button>
+									</>
+								) : null}
+								{node.packageLink ? (
+									<>
+										<Button>VIEW NPM</Button>
+									</>
+								) : null}
+							</ButtonContainer>
 						</Card>
 					))}
 				</Grid>

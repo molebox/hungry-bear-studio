@@ -85,6 +85,10 @@ const Bio = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+
+	// background: #1a1a1a;
+	// border-radius: 0.4em;
+	// padding: 1em;
 `;
 
 const Index = () => {
@@ -149,9 +153,9 @@ const Index = () => {
 										fontSize: [4],
 										fontWeight: 'body',
 										color: 'text',
-										':hover': {
-											color: 'secondary',
-										},
+										// ':hover': {
+										// 	color: 'secondary',
+										// },
 									}}
 								>
 									PROJECTS
@@ -165,9 +169,9 @@ const Index = () => {
 										fontWeight: 'body',
 										color: 'text',
 										textDecoration: 'none',
-										':hover': {
-											color: 'secondary',
-										},
+										// ':hover': {
+										// 	color: 'secondary',
+										// },
 									}}
 								>
 									CONTACT
@@ -181,6 +185,7 @@ const Index = () => {
 									fontSize: [2],
 									fontWeight: 'body',
 									gridColumn: '1',
+									letterSpacing: 'body',
 								}}
 							>
 								Hello my name is Richard Haines, I work under the moniker Hungry Bear Studio. I’m a web and mobile
@@ -194,6 +199,7 @@ const Index = () => {
 									fontWeight: 'body',
 									marginTop: '1em',
 									gridColumn: '2',
+									letterSpacing: 'body',
 								}}
 							>
 								Some of my favorite tools include React, Gatsby, Emotion, Sanity and Expo. Im proficient in JavaScript,
