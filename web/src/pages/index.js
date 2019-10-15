@@ -142,7 +142,7 @@ const Index = () => {
 							</Polygon>
 						</OrangeBox>
 						<Links>
-							<Link to="/projects" css={{ textDecoration: 'none' }}>
+							<Link to="/projectIndex" css={{ textDecoration: 'none' }}>
 								<h2
 									sx={{
 										fontFamily: 'heading',
@@ -177,7 +177,7 @@ const Index = () => {
 						<Bio>
 							<h3
 								sx={{
-									fontFamily: 'heading',
+									fontFamily: 'body',
 									fontSize: [2],
 									fontWeight: 'body',
 									gridColumn: '1',
@@ -189,7 +189,7 @@ const Index = () => {
 							</h3>
 							<h3
 								sx={{
-									fontFamily: 'heading',
+									fontFamily: 'body',
 									fontSize: [2],
 									fontWeight: 'body',
 									marginTop: '1em',

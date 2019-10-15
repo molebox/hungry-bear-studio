@@ -1,23 +1,23 @@
 var plugins = [{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-source-sanity/gatsby-ssr'),
       options: {"plugins":[],"projectId":"olstal9u","dataset":"portfolio","watchMode":true},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
       options: {"plugins":[],"fonts":["Poppins","Open Sans","source sans pro:300,400,400i,700"]},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-theme-ui/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-theme-ui/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Hungry Bear Studio Web and Mobile Design","short_name":"Hungry Bear Studio","start_url":"/","background_color":"#A5A5A5","theme_color":"#A5A5A5","display":"standalone","icon":""},
     },{
-      plugin: require('D:/HUNGRYBEARSTUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-offline/gatsby-ssr'),
+      plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:

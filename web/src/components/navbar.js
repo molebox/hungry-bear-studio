@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import github from '../static/images/github.png';
 import twitter from '../static/images/twitter.png';
+import { Link } from 'gatsby';
 
 const Nav = styled.nav`
 	grid-area: navbar;
@@ -36,17 +37,25 @@ const Navbar = () => {
 				borderBottomStyle: 'solid',
 			}}
 		>
-			<h1
+			<Link
 				sx={{
-					fontFamily: 'heading',
-					fontSize: [4],
-					fontWeight: 'heading',
-					marginLeft: '5em',
-					letterSpacing: 'body',
+					textDecoration: 'none',
+					color: 'background',
 				}}
+				to="/"
 			>
-				HUNGRY BEAR STUDIO
-			</h1>
+				<h1
+					sx={{
+						fontFamily: 'heading',
+						fontSize: [4],
+						fontWeight: 'heading',
+						marginLeft: '5em',
+						letterSpacing: 'body',
+					}}
+				>
+					HUNGRY BEAR STUDIO
+				</h1>
+			</Link>
 			<Links>
 				<a href="https://twitter.com/studio_hungry">
 					<img src={twitter} />
