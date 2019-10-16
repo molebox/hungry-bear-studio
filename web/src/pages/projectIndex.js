@@ -44,7 +44,15 @@ const Header = styled.header`
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	// grid-template-rows: min-content 1fr;
+	grid-auto-flow: row;
+
+	// grid-auto-rows: minmax(100px, auto);
+	// grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+
 	grid-gap: 2em;
+
+	grid-auto-rows: auto;
 
 	margin: 2em;
 `;
@@ -53,17 +61,12 @@ const Card = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: fit-content;
 
 	background: #1a1a1a;
-	margin-bottom: 2rem;
+	// margin-bottom: 2rem;
 	padding: 2rem;
 	border-radius: 0.4em;
-
-	//border: solid white 1px;
-
-	// &:hover {
-	// 	box-shadow: 3px 4px 7px 0px hsl(22.100000000000023, 72.8%, 53.9%);
-	// }
 
 	& h4 {
 		margin-bottom: 2rem;
@@ -142,8 +145,8 @@ const Description = styled.div`
 export const Polygon = styled.div`
 	width: 200px;
 	height: 50px;
-	background: #df7334;
-	border: 2px solid #ffffff;
+	background: #212121;
+	border: 1px solid #df7334;
 	transform: skew(-20deg);
 
 	margin: 0.5em;
@@ -162,7 +165,7 @@ const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: 1em;
+	margin-top: 2em;
 `;
 
 const Button = styled.button`
@@ -212,8 +215,10 @@ const ProjectIndex = () => {
 				</Header>
 				<Grid>
 					{projectList.map(({ node }) => (
-						<Card>
-							{node.projectImage && <Image className="img" fluid={node.projectImage.asset.fluid} alt={node.title} />}
+						<Card key={node.slug.current}>
+							{node.projectImage ? (
+								<Image className="img" fluid={node.projectImage.asset.fluid} alt={node.title} />
+							) : null}
 							<Description>
 								<div>
 									<h4

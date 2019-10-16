@@ -58,10 +58,10 @@ const Navbar = () => {
 			</Link>
 			<Links>
 				<a href="https://twitter.com/studio_hungry">
-					<img src={twitter} />
+					<img src={twitter} alt="twitter logo" />
 				</a>
 				<a href="https://github.com/molebox?tab=repositories">
-					<img src={github} />
+					<img src={github} alt="github logo" />
 				</a>
 			</Links>
 		</Nav>

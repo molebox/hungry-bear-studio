@@ -6,7 +6,7 @@ import Layout from './../components/layout';
 import Navbar from '../components/navbar';
 import Main from '../components/main';
 import Footer from '../components/footer';
-import { css } from '@emotion/core';
+import SEO from 'gatsby-theme-seo/src/components/seo';
 
 const Container = styled.div`
 	display: flex;
@@ -21,24 +21,38 @@ const Content = styled.section`
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr auto 1fr;
 	grid-template-areas:
-		'. orangeBox orangeBox .'
+		'. title title .'
 		'. links links .'
 		'. bio bio .';
 `;
 
-const OrangeBox = styled.div`
-	grid-area: orangeBox;
+// const OrangeBox = styled.div`
+// 	grid-area: orangeBox;
 
+// 	display: flex;
+// 	justify-content: space-evenly;
+// `;
+
+const Title = styled.div`
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
+	align-items: center;
+
+	grid-area: title;
+	background: #1a1a1a;
+	margin-bottom: 2rem;
+	padding: 2rem;
+	border-radius: 0.4em;
+	border: 1px solid #df7334;
 `;
 
 const Polygon = styled.div`
 	width: 440px;
 	height: 100px;
-	background: #df7334;
-	border: 2px solid #ffffff;
+	background: #212121;
+	border: 1px solid #df7334;
 	transform: skew(-20deg);
+	// background: #df7334;
 
 	margin: 0.5em;
 
@@ -65,7 +79,7 @@ const Links = styled.div`
 		content: '';
 		display: block;
 		width: 0%;
-		border-bottom: 2px solid white;
+		border-bottom: 2px solid #df7334;
 		transition: 0.5s;
 		position: absolute;
 		z-index: 10;
@@ -91,19 +105,43 @@ const Bio = styled.div`
 	// padding: 1em;
 `;
 
+const SEODescription = `
+Hello my name is Richard Haines, I work under the moniker Hungry Bear Studio. I’m a web and mobile
+developer based in the north of Sweden. I love the creative process of taking an idea from design to
+finished solution.
+`;
+
+const SEOKeywords = ['Web Developer', 'Mobile Developer', 'React', 'Gatsby', 'Expo', 'React Native'];
+
 const Index = () => {
 	return (
 		<Layout>
+			<SEO title="Hungry Bear Studio Web and Mobile Design" description={SEODescription} keywords={SEOKeywords} />
 			<Navbar />
 			<Main>
 				<Container>
 					<Content>
-						<OrangeBox>
+						<Title>
+							<h1
+								sx={{
+									fontFamily: 'heading',
+									fontSize: [6],
+									fontWeight: 'body',
+									color: 'text',
+									letterSpacing: 'body',
+									lineHeight: 'logo',
+									textShadow: '5px 9px 13px #000',
+								}}
+							>
+								Web & Mobile Developer
+							</h1>
+						</Title>
+						{/* <OrangeBox>
 							<Polygon>
 								<div
 									sx={{
 										fontFamily: 'heading',
-										fontSize: [6],
+										fontSize: [5],
 										fontWeight: 'body',
 										color: 'text',
 										letterSpacing: 'body',
@@ -118,7 +156,7 @@ const Index = () => {
 								<div
 									sx={{
 										fontFamily: 'heading',
-										fontSize: [6],
+										fontSize: [5],
 										fontWeight: 'body',
 										color: 'text',
 										letterSpacing: 'body',
@@ -133,7 +171,7 @@ const Index = () => {
 								<div
 									sx={{
 										fontFamily: 'heading',
-										fontSize: [6],
+										fontSize: [5],
 										fontWeight: 'body',
 										color: 'text',
 										letterSpacing: 'body',
@@ -141,10 +179,10 @@ const Index = () => {
 										textShadow: '5px 9px 13px #000',
 									}}
 								>
-									DESIGN
+									DEV
 								</div>
 							</Polygon>
-						</OrangeBox>
+						</OrangeBox> */}
 						<Links>
 							<Link to="/projectIndex" css={{ textDecoration: 'none' }}>
 								<h2
