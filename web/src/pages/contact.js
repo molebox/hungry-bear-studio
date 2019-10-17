@@ -11,49 +11,50 @@ import SEO from 'gatsby-theme-seo/src/components/seo';
 const Container = styled.section`
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
 	align-items: center;
 
-	height: 60vh;
+	height: 100%;
 `;
 
 const Form = styled.form`
-	width: 50%;
-	position: relative;
-	height: 50%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
 
-	& > fieldset > input {
-		width: 100%;
-		height: 100%;
-		padding-top: 20px;
-		border: none;
+	& > fieldset {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 	}
 
 	& > fieldset > label {
-		position: absolute;
-		bottom: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-		border-bottom: 1px solid black;
-		pointer-events: none;
+		margin: 1em auto;
 	}
 
-	& > fieldset > label::after {
-		content: '';
-		position: absolute;
-		left: 0px;
-		bottom: -1px;
-		height: 100%;
+	& > fieldset > input {
 		width: 100%;
-		border-bottom: 3px solid #df7334;
-		transition: all 0.3s ease;
+		// height: 100%;
+		padding-top: 20px;
+		border-radius: 0.4em;
+		border: 2px solid #df7334;
 	}
 
-	& > fieldset > input:focus + .label-name .content-name {
-		transform: translateY(-150%);
-		font-size: 14px;
-		color: #df7334;
+	// & > fieldset > input:invalid {
+	// 	border: 3px solid red;
+	// }
+
+	// & > fieldset > input:valid {
+	// 	border: 2px solid #df7334;
+	// }
+
+	& > fieldset > textarea {
+		width: 100%;
+		height: 100%;
+		padding-top: 20px;
+		border-radius: 0.4em;
+		border: 2px solid #df7334;
+		resize: none;
 	}
 `;
 
@@ -64,7 +65,12 @@ const Card = styled.div`
 	border-radius: 0.4em;
 	border: 1px solid #df7334;
 
-	// width: 500px;
+	& > h1 {
+		align-text: center;
+		padding-bottom: 1em;
+	}
+
+	width: 700px;
 	// height: 500px;
 `;
 
@@ -76,26 +82,128 @@ const Contact = () => {
 			<Navbar />
 			<Main>
 				<Container>
-					<Form name="contact" method="POST" data-netlify="true">
-						<fieldset
+					<Card>
+						<h1
 							sx={{
-								border: 'none',
+								color: 'text',
+								fontFamily: 'heading',
+								fontWeight: 'heading',
+								fontSize: [4],
+								lineHeight: 'body',
+								letterSpacing: 'body',
 							}}
 						>
-							<label htmlFor="name" className="label-name">
-								<span className="content-name">Name</span>
-							</label>
-							<input type="text" name="name" id="name" />
-						</fieldset>
-						{/* 
+							Lets Talk..
+						</h1>
+						<Form name="contact" method="POST" data-netlify="true">
+							<fieldset
+								sx={{
+									border: 'none',
+								}}
+							>
+								<label
+									sx={{
+										color: 'text',
+										fontFamily: 'heading',
+										fontWeight: 'heading',
+										fontSize: [2],
+										lineHeight: 'body',
+										letterSpacing: 'body',
+									}}
+									htmlFor="name"
+									className="label-name"
+								>
+									Name
+								</label>
+								<input
+									sx={{
+										fontSize: [2],
+										fontFamily: 'heading',
+										padding: '1em',
+									}}
+									autofocus
+									type="text"
+									name="name"
+									id="name"
+									aria-describedby="required-message"
+									required
+								/>
+							</fieldset>
+							<fieldset
+								sx={{
+									border: 'none',
+								}}
+							>
+								<label
+									sx={{
+										color: 'text',
+										fontFamily: 'heading',
+										fontWeight: 'heading',
+										fontSize: [2],
+										lineHeight: 'body',
+										letterSpacing: 'body',
+									}}
+									htmlFor="email"
+									className="email"
+								>
+									Email
+								</label>
+								<input
+									sx={{
+										fontSize: [2],
+										fontFamily: 'heading',
+										padding: '1em',
+									}}
+									type="email"
+									name="email"
+									id="email"
+									aria-describedby="required-message"
+									required
+								/>
+							</fieldset>
+							<fieldset
+								sx={{
+									border: 'none',
+								}}
+							>
+								<label
+									sx={{
+										color: 'text',
+										fontFamily: 'heading',
+										fontWeight: 'heading',
+										fontSize: [2],
+										lineHeight: 'body',
+										letterSpacing: 'body',
+									}}
+									htmlFor="email"
+									className="email"
+								>
+									Message
+								</label>
+								<textarea
+									sx={{
+										fontSize: [2],
+										fontFamily: 'heading',
+										padding: '1em',
+										lineHeight: '1.5',
+									}}
+									rows="10"
+									name="message"
+									id="message"
+									aria-describedby="required-message"
+									required
+								/>
+							</fieldset>
+							{/* 
                         <label>Your Email: <input type="email" name="email" /></label>
                     
                   
                         <label>Message: <textarea name="message"></textarea></label>
                      */}
 
-						{/* <button type="submit">Send</button> */}
-					</Form>
+							{/* <button type="submit">Send</button> */}
+						</Form>
+					</Card>
 				</Container>
 			</Main>
 			<Footer />

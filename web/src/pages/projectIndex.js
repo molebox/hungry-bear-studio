@@ -198,7 +198,7 @@ const ProjectIndex = () => {
 			<Main>
 				<Header>
 					<Polygon>
-						<div
+						<h1
 							sx={{
 								fontFamily: 'heading',
 								fontSize: [4],
@@ -210,7 +210,7 @@ const ProjectIndex = () => {
 							}}
 						>
 							PROJECTS
-						</div>
+						</h1>
 					</Polygon>
 				</Header>
 				<Grid>
