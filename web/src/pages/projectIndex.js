@@ -43,11 +43,8 @@ const Header = styled.header`
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-auto-flow: row;
 
 	grid-gap: 2em;
-
-	grid-auto-rows: auto;
 
 	margin: 2em;
 `;
@@ -56,7 +53,6 @@ const Card = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: fit-content;
 
 	background: #1a1a1a;
 	padding: 2rem;
@@ -64,10 +60,6 @@ const Card = styled.div`
 
 	& h4 {
 		margin-bottom: 2rem;
-	}
-
-	@media (max-width: 700px) {
-		display: block;
 	}
 `;
 
@@ -97,15 +89,17 @@ const Image = styled(Img)`
 const Description = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: center;
 	-webkit-animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 
-	& > div > h4 {
-		@media (max-width: 700px) {
-			font-size: 1.5rem;
-		}
+	& > div > div {
+		font-size: 16px;
+		font-family: Open Sans;
+		color: white;
+		letter-spacing: 2px;
+		font-weight: 300;
 	}
 
 	& > div > p {
@@ -230,10 +224,8 @@ const ProjectIndex = () => {
 									</h4>
 									<PortableText
 										sx={{
-											color: 'primary',
 											fontFamily: 'heading',
 											fontWeight: 'heading',
-											fontSize: [1],
 											lineHeight: 'body',
 										}}
 										blocks={node._rawDescription}

@@ -15,7 +15,7 @@ var plugins = [{
       options: {"plugins":[]},
     },{
       plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"Hungry Bear Studio Web and Mobile Design","short_name":"Hungry Bear Studio","start_url":"/","background_color":"#A5A5A5","theme_color":"#A5A5A5","display":"standalone","icon":""},
+      options: {"plugins":[],"name":"Hungry Bear Studio Web and Mobile Design","short_name":"Hungry Bear Studio","start_url":"/","background_color":"#A5A5A5","theme_color":"#A5A5A5","display":"standalone","icon":"src/assets/bear-favicon.png"},
     },{
       plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
