@@ -19,10 +19,10 @@ const Container = styled.div`
 const Content = styled.section`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr auto 1fr;
+	grid-template-rows: auto auto 1fr;
 	grid-template-areas:
 		'. orangeBox .'
-		'links links link'
+		'. links .'
 		'bio bio bio';
 
 	/* 48em = 768px DESKTOP */
@@ -43,6 +43,7 @@ const OrangeBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 2em;
 
 	/* 48em = 768px DESKTOP */
 	@media (min-width: 48em) {

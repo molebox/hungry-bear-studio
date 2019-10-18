@@ -45,9 +45,8 @@ const Links = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 
-	& div > a > img {
-		width: 1.3em;
-		height: 1.3em;
+	& > a {
+		width: 1em;
 	}
 
 	/* 48em = 768px DESKTOP */

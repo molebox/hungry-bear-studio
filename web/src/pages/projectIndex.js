@@ -46,13 +46,21 @@ const Header = styled.header`
 
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 1fr);
+	// grid-template-columns: repeat(auto-fit, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
 	grid-gap: 2em;
 	margin: 1em;
 	align-items: center;
 
-	height: 100vh /* 48em = 768px DESKTOP */ @media (min-width: 48em) {
+	// height: 100vh;
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 2em;
+		margin: 1em;
+		align-items: center;
 	}
 `;
 
