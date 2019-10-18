@@ -61,7 +61,7 @@ module.exports = {
               background_color: `#A5A5A5`,
               theme_color: `#A5A5A5`,
               display: `standalone`,
-              icon: 'src/assets/bear-favicon.ico'
+              icon: 'src/assets/bear-favicon.png'
             },
           },
           'gatsby-plugin-offline'
