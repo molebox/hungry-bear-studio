@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import { useStaticQuery } from 'gatsby';
-import { Link } from 'gatsby';
 import Main from '../components/main';
 import Layout from '../components/layout';
 
@@ -44,11 +43,7 @@ const Header = styled.header`
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	// grid-template-rows: min-content 1fr;
 	grid-auto-flow: row;
-
-	// grid-auto-rows: minmax(100px, auto);
-	// grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
 
 	grid-gap: 2em;
 
@@ -64,7 +59,6 @@ const Card = styled.div`
 	height: fit-content;
 
 	background: #1a1a1a;
-	// margin-bottom: 2rem;
 	padding: 2rem;
 	border-radius: 0.4em;
 
@@ -78,8 +72,6 @@ const Card = styled.div`
 `;
 
 const Image = styled(Img)`
-	// width: 100%;
-	// height: 100%;
 	border-radius: 0.4em;
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;

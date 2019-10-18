@@ -36,11 +36,6 @@ const Layout = ({ children }) => (
 					margin: 0;
 					padding: 0;
 					box-sizing: border-box;
-
-					@font-face {
-						font-family: 'MarketDeco';
-						src: url('../../../static/fonts/MarketDeco.woff') format('woff');
-					}
 				}
 				body {
 					scroll-behavior: smooth;

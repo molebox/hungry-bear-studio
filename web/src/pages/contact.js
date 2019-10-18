@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 import Layout from './../components/layout';
 import Navbar from '../components/navbar';
 import Main from '../components/main';
 import Footer from '../components/footer';
-import SEO from 'gatsby-theme-seo/src/components/seo';
 
 const Container = styled.section`
 	display: flex;
@@ -19,8 +17,6 @@ const Container = styled.section`
 const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-	// width: 100%;
-	// height: 100%;
 
 	& > fieldset {
 		display: flex;

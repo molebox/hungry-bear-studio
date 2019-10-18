@@ -72,7 +72,6 @@ const Polygon = styled.div`
 	background: #212121;
 	border: 1px solid #df7334;
 	transform: skew(-20deg);
-	// background: #df7334;
 
 	margin: 0.5em;
 
@@ -225,9 +224,6 @@ const Index = () => {
 
 										fontWeight: 'body',
 										color: 'text',
-										// ':hover': {
-										// 	color: 'secondary',
-										// },
 									}}
 								>
 									PROJECTS
@@ -241,9 +237,6 @@ const Index = () => {
 										fontWeight: 'body',
 										color: 'text',
 										textDecoration: 'none',
-										// ':hover': {
-										// 	color: 'secondary',
-										// },
 									}}
 								>
 									CONTACT
