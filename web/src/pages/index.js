@@ -18,20 +18,31 @@ const Container = styled.div`
 
 const Content = styled.section`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr auto 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.5fr auto 1fr;
 	grid-template-areas:
-		'. title title .'
-		'. links links .'
-		'. bio bio .';
+		'title'
+		'links'
+		'bio';
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr auto 1fr;
+		grid-template-areas:
+			'. orangeBox orangeBox .'
+			'. links links .'
+			'. bio bio .';
+	}
 `;
 
-// const OrangeBox = styled.div`
-// 	grid-area: orangeBox;
+const OrangeBox = styled.div`
+	grid-area: orangeBox;
 
-// 	display: flex;
-// 	justify-content: space-evenly;
-// `;
+	display: flex;
+	justify-content: space-evenly;
+`;
 
 const Title = styled.div`
 	display: flex;
@@ -39,11 +50,20 @@ const Title = styled.div`
 	align-items: center;
 
 	grid-area: title;
-	background: #1a1a1a;
-	margin-bottom: 2rem;
-	padding: 2rem;
-	border-radius: 0.4em;
-	border: 1px solid #df7334;
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		grid-area: title;
+		background: #1a1a1a;
+		margin-bottom: 2rem;
+		padding: 2rem;
+		border-radius: 0.4em;
+		border: 1px solid #df7334;
+	}
 `;
 
 const Polygon = styled.div`
@@ -71,9 +91,6 @@ const Links = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	// width: 20em;
-	// height: 4em;
-	margin-bottom: 2em;
 
 	& > a::after {
 		content: '';
@@ -89,6 +106,19 @@ const Links = styled.div`
 		width: 7%;
 		position: absolute;
 	}
+
+	& > a > h2 {
+		font-size: 1em;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		margin-bottom: 2em;
+
+		& > a > h2 {
+			font-size: 1.5em;
+		}
+	}
 `;
 
 const Bio = styled.div`
@@ -100,9 +130,14 @@ const Bio = styled.div`
 	flex-direction: column;
 	align-items: stretch;
 
-	// background: #1a1a1a;
-	// border-radius: 0.4em;
-	// padding: 1em;
+	& > h3 {
+		font-size: 1em;
+		padding: 1em;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+	}
 `;
 
 const SEODescription = `
@@ -121,11 +156,10 @@ const Index = () => {
 			<Main>
 				<Container>
 					<Content>
-						<Title>
+						{/* <Title>
 							<h1
 								sx={{
 									fontFamily: 'heading',
-									fontSize: [6],
 									fontWeight: 'body',
 									color: 'text',
 									letterSpacing: 'body',
@@ -135,8 +169,8 @@ const Index = () => {
 							>
 								Web & Mobile Developer
 							</h1>
-						</Title>
-						{/* <OrangeBox>
+						</Title> */}
+						<OrangeBox>
 							<Polygon>
 								<div
 									sx={{
@@ -182,13 +216,13 @@ const Index = () => {
 									DEV
 								</div>
 							</Polygon>
-						</OrangeBox> */}
+						</OrangeBox>
 						<Links>
 							<Link to="/projectIndex" css={{ textDecoration: 'none' }}>
 								<h2
 									sx={{
 										fontFamily: 'heading',
-										fontSize: [4],
+
 										fontWeight: 'body',
 										color: 'text',
 										// ':hover': {
@@ -203,7 +237,7 @@ const Index = () => {
 								<h2
 									sx={{
 										fontFamily: 'heading',
-										fontSize: [4],
+
 										fontWeight: 'body',
 										color: 'text',
 										textDecoration: 'none',
@@ -220,9 +254,9 @@ const Index = () => {
 							<h3
 								sx={{
 									fontFamily: 'body',
-									fontSize: [2],
+
 									fontWeight: 'body',
-									gridColumn: '1',
+
 									letterSpacing: 'body',
 								}}
 							>
@@ -233,10 +267,9 @@ const Index = () => {
 							<h3
 								sx={{
 									fontFamily: 'body',
-									fontSize: [2],
+
 									fontWeight: 'body',
-									marginTop: '1em',
-									gridColumn: '2',
+
 									letterSpacing: 'body',
 								}}
 							>

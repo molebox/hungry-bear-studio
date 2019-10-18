@@ -11,6 +11,17 @@ const FooterContainer = styled.footer`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	& > h4 {
+		font-size: 0.7em;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		& > h4 {
+			font-size: 1em;
+		}
+	}
 `;
 
 const Footer = () => {
@@ -27,7 +38,6 @@ const Footer = () => {
 				sx={{
 					font: 'heading',
 					fontFamily: 'body',
-					fontSize: [1],
 					color: 'lightText',
 				}}
 			>

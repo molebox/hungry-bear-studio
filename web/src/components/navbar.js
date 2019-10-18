@@ -10,20 +10,56 @@ const Nav = styled.nav`
 	height: 4em;
 
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 	word-spacing: 0.5em;
+
+	& > a > h1 {
+		font-size: 1em;
+		margin-left: 1em;
+	}
+
+	& div > a > img {
+		width: 1.3em;
+		height: 1.3em;
+	}
+
+	& div > a {
+		margin: 1em;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		grid-area: navbar;
+		height: 4em;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		word-spacing: 0.5em;
+
+		& > a > h1 {
+			font-size: 1.5em;
+			margin-left: 5em;
+		}
+	}
 `;
 
 const Links = styled.div`
-	width: 100px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
-	margin-right: 15em;
 
-	& > a > img:hover {
+	& div > a > img:hover {
 		filter: brightness(50%);
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-right: 15em;
 	}
 `;
 
@@ -47,9 +83,7 @@ const Navbar = () => {
 				<h1
 					sx={{
 						fontFamily: 'heading',
-						fontSize: [4],
 						fontWeight: 'heading',
-						marginLeft: '5em',
 						letterSpacing: 'body',
 					}}
 				>

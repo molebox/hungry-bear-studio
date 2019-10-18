@@ -156,7 +156,7 @@ export const Polygon = styled.div`
 	justify-content: center;
 	align-items: center;
 
-	& > div {
+	& > h1 {
 		transform: skew(20deg);
 	}
 `;

@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 
 const Container = styled.div`
-	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
@@ -14,9 +13,19 @@ const Container = styled.div`
 	height: 100vh;
 	width: 100vw;
 
-	// /* 48em = 768px DESKTOP */
-	// @media (min-width: 48em) {
-	// }
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas:
+			'navbar'
+			'main'
+			'footer';
+
+		height: 100vh;
+		width: 100vw;
+	}
 `;
 
 const Layout = ({ children }) => (

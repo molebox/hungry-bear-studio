@@ -18,13 +18,12 @@ const Container = styled.section`
 
 const Form = styled.form`
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
-	width: 100%;
+	// width: 100%;
+	// height: 100%;
 
 	& > fieldset {
 		display: flex;
-		justify-content: center;
 		flex-direction: column;
 	}
 
@@ -34,47 +33,81 @@ const Form = styled.form`
 
 	& > fieldset > input {
 		width: 100%;
-		// height: 100%;
-		padding-top: 20px;
 		border-radius: 0.4em;
-		border: 2px solid #df7334;
+		border: 2px solid #1a1a1a;
 	}
 
-	// & > fieldset > input:invalid {
-	// 	border: 3px solid red;
-	// }
+	& > fieldset > input:focus {
+		border: 3px solid #df7334;
+		outline: #df7334;
+	}
 
-	// & > fieldset > input:valid {
-	// 	border: 2px solid #df7334;
-	// }
+	& > fieldset > textarea:focus {
+		border: 3px solid #df7334;
+		outline: #df7334;
+	}
 
 	& > fieldset > textarea {
 		width: 100%;
-		height: 100%;
-		padding-top: 20px;
 		border-radius: 0.4em;
-		border: 2px solid #df7334;
-		resize: none;
+		border: 2px solid #1a1a1a;
 	}
 `;
 
 const Card = styled.div`
-	background: #1a1a1a;
-	margin-bottom: 2rem;
-	padding: 2rem;
-	border-radius: 0.4em;
-	border: 1px solid #df7334;
+	padding: 1em;
 
 	& > h1 {
 		align-text: center;
-		padding-bottom: 1em;
+		padding-bottom: 0.5em;
 	}
 
-	width: 700px;
-	// height: 500px;
+	width: 300px;
+	height: auto;
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		background: #1a1a1a;
+		padding: 1em;
+		border-radius: 0.4em;
+		border: 1px solid #df7334;
+
+		& > h1 {
+			align-text: center;
+			padding-bottom: 1em;
+		}
+
+		width: 600px;
+		height: auto;
+	}
 `;
 
-// https://www.youtube.com/watch?v=IxRJ8vplzAo&t=31s
+const Button = styled.button`
+	background: #212121;
+	border-radius: 5px;
+	width: 130px;
+	height: 45px;
+	padding: 1em;
+	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+
+	&:hover {
+		background: #a5a5a5;
+		color: #000000;
+	}
+`;
+
+const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 2em;
+`;
 
 const Contact = () => {
 	return (
@@ -88,8 +121,6 @@ const Contact = () => {
 								color: 'text',
 								fontFamily: 'heading',
 								fontWeight: 'heading',
-								fontSize: [4],
-								lineHeight: 'body',
 								letterSpacing: 'body',
 							}}
 						>
@@ -106,8 +137,6 @@ const Contact = () => {
 										color: 'text',
 										fontFamily: 'heading',
 										fontWeight: 'heading',
-										fontSize: [2],
-										lineHeight: 'body',
 										letterSpacing: 'body',
 									}}
 									htmlFor="name"
@@ -117,7 +146,6 @@ const Contact = () => {
 								</label>
 								<input
 									sx={{
-										fontSize: [2],
 										fontFamily: 'heading',
 										padding: '1em',
 									}}
@@ -139,8 +167,6 @@ const Contact = () => {
 										color: 'text',
 										fontFamily: 'heading',
 										fontWeight: 'heading',
-										fontSize: [2],
-										lineHeight: 'body',
 										letterSpacing: 'body',
 									}}
 									htmlFor="email"
@@ -150,7 +176,6 @@ const Contact = () => {
 								</label>
 								<input
 									sx={{
-										fontSize: [2],
 										fontFamily: 'heading',
 										padding: '1em',
 									}}
@@ -171,8 +196,6 @@ const Contact = () => {
 										color: 'text',
 										fontFamily: 'heading',
 										fontWeight: 'heading',
-										fontSize: [2],
-										lineHeight: 'body',
 										letterSpacing: 'body',
 									}}
 									htmlFor="email"
@@ -182,10 +205,8 @@ const Contact = () => {
 								</label>
 								<textarea
 									sx={{
-										fontSize: [2],
 										fontFamily: 'heading',
 										padding: '1em',
-										lineHeight: '1.5',
 									}}
 									rows="10"
 									name="message"
@@ -194,14 +215,10 @@ const Contact = () => {
 									required
 								/>
 							</fieldset>
-							{/* 
-                        <label>Your Email: <input type="email" name="email" /></label>
-                    
-                  
-                        <label>Message: <textarea name="message"></textarea></label>
-                     */}
 
-							{/* <button type="submit">Send</button> */}
+							<ButtonContainer>
+								<Button type="submit">SEND</Button>
+							</ButtonContainer>
 						</Form>
 					</Card>
 				</Container>
