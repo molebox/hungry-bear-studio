@@ -19,11 +19,6 @@ const Nav = styled.nav`
 		margin-left: 1em;
 	}
 
-	& div > a > img {
-		width: 1.3em;
-		height: 1.3em;
-	}
-
 	& div > a {
 		margin: 1em;
 	}
@@ -50,8 +45,9 @@ const Links = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 
-	& div > a > img:hover {
-		filter: brightness(50%);
+	& div > a > img {
+		width: 1.3em;
+		height: 1.3em;
 	}
 
 	/* 48em = 768px DESKTOP */

@@ -18,12 +18,12 @@ const Container = styled.div`
 
 const Content = styled.section`
 	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 0.5fr auto 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr auto 1fr;
 	grid-template-areas:
-		'title'
-		'links'
-		'bio';
+		'. orangeBox .'
+		'links links link'
+		'bio bio bio';
 
 	/* 48em = 768px DESKTOP */
 	@media (min-width: 48em) {
@@ -39,9 +39,17 @@ const Content = styled.section`
 
 const OrangeBox = styled.div`
 	grid-area: orangeBox;
-
+	flex-direction: column
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
+	align-items: center;
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		grid-area: orangeBox;
+		display: flex;
+		justify-content: space-evenly;
+	}
 `;
 
 const Title = styled.div`
@@ -67,8 +75,8 @@ const Title = styled.div`
 `;
 
 const Polygon = styled.div`
-	width: 440px;
-	height: 100px;
+	width: 200px;
+	height: 50px;
 	background: #212121;
 	border: 1px solid #df7334;
 	transform: skew(-20deg);
@@ -81,6 +89,25 @@ const Polygon = styled.div`
 
 	& > div {
 		transform: skew(20deg);
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		width: 440px;
+		height: 100px;
+		background: #212121;
+		border: 1px solid #df7334;
+		transform: skew(-20deg);
+
+		margin: 0.5em;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > div {
+			transform: skew(20deg);
+		}
 	}
 `;
 

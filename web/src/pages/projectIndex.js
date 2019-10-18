@@ -17,7 +17,6 @@ const Header = styled.header`
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin-top: 2rem;
 
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
@@ -38,21 +37,30 @@ const Header = styled.header`
 			opacity: 1;
 		}
 	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		margin-top: 2rem;
+	}
 `;
 
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-
+	grid-template-columns: repeat(auto-fill, 1fr);
 	grid-gap: 2em;
+	margin: 1em;
+	align-items: center;
 
-	margin: 2em;
+	height: 100vh /* 48em = 768px DESKTOP */ @media (min-width: 48em) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 `;
 
 const Card = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: fit-content;
 
 	background: #1a1a1a;
 	padding: 2rem;
@@ -135,8 +143,8 @@ export const Polygon = styled.div`
 	border: 1px solid #df7334;
 	transform: skew(-20deg);
 
-	margin: 0.5em;
-	margin-bottom: 3em;
+	margin-top: 2em;
+	margin-bottom: 1em;
 
 	display: flex;
 	justify-content: center;
@@ -144,6 +152,26 @@ export const Polygon = styled.div`
 
 	& > h1 {
 		transform: skew(20deg);
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		width: 200px;
+		height: 50px;
+		background: #212121;
+		border: 1px solid #df7334;
+		transform: skew(-20deg);
+
+		margin: 0.5em;
+		margin-bottom: 3em;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > h1 {
+			transform: skew(20deg);
+		}
 	}
 `;
 
@@ -154,12 +182,14 @@ const ButtonContainer = styled.div`
 	margin-top: 2em;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
 	background: #212121;
+	border: 1px solid #df7334;
 	border-radius: 5px;
 	width: 130px;
-	height: 45px;
-	padding: 1em;
+	height: 40px;
+	font-size: 1em;
+	padding: 1.2em;
 	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
 	cursor: pointer;
 
@@ -171,6 +201,12 @@ const Button = styled.button`
 	&:hover {
 		background: #a5a5a5;
 		color: #000000;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		width: 130px;
+		height: 45px;
 	}
 `;
 
@@ -235,17 +271,44 @@ const ProjectIndex = () => {
 							<ButtonContainer>
 								{node.githubLink ? (
 									<>
-										<Button>VIEW CODE</Button>
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.githubLink}
+										>
+											VIEW CODE
+										</Button>
 									</>
 								) : null}
 								{node.exampleSiteLink ? (
 									<>
-										<Button>VIEW SITE</Button>
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.exampleSiteLink}
+										>
+											VIEW SITE
+										</Button>
 									</>
 								) : null}
 								{node.packageLink ? (
 									<>
-										<Button>VIEW NPM</Button>
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.packageLink}
+										>
+											VIEW NPM
+										</Button>
 									</>
 								) : null}
 							</ButtonContainer>
