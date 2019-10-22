@@ -62,9 +62,9 @@ const Navbar = () => {
 	return (
 		<Nav
 			sx={{
-				borderBottomColor: 'primary',
+				borderBottomColor: 'darkText',
 				borderBottomWidth: '3px',
-				backgroundColor: 'secondary',
+				backgroundColor: 'white',
 				borderBottomStyle: 'solid',
 			}}
 		>

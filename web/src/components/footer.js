@@ -28,9 +28,9 @@ const Footer = () => {
 	return (
 		<FooterContainer
 			sx={{
-				borderTopColor: 'primary',
+				borderTopColor: 'darkText',
 				borderTopWidth: '3px',
-				backgroundColor: 'secondary',
+				backgroundColor: 'white',
 				borderTopStyle: 'solid',
 			}}
 		>

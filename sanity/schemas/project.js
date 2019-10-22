@@ -31,6 +31,12 @@ export default {
               type: 'blockContent'
           },
           {
+            title: 'Stack',
+            name: 'stack',
+            type: 'array',
+            of: [{type: 'string'}]
+          },
+          {
             name: 'githubLink',
             title: 'Github Link',
             type: 'url',

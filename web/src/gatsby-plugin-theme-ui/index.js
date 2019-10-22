@@ -12,6 +12,9 @@ export default {
 		background: '#212121',
 		primary: '#DF7334',
 		secondary: '#A5A5A5',
+		accent: '#00f9ff',
+		lightText: '#8ffcff',
+		yellow: '#fff226',
 
 		// modes: {
 		// 	// this is the dark color mode colors
@@ -24,6 +27,7 @@ export default {
 	fonts: {
 		body: 'Open Sans',
 		heading: 'Poppins',
+		text: 'Josefin Sans',
 	},
 	fontWeights: {
 		body: 300,

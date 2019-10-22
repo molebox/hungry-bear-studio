@@ -28,6 +28,7 @@ module.exports = {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
               fonts: [
+                'Josefin Sans',
                 'Poppins',
                 `Open Sans`,
                 `source sans pro\:300,400,400i,700` 
@@ -46,11 +47,20 @@ module.exports = {
                 }
             }
         },
+        {
+          resolve: 'gatsby-plugin-react-svg',
+          options: {
+              rule: {
+                include: /assets/
+              }
+          }
+      },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         `gatsby-plugin-emotion`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-robots-txt`,
+        'gatsby-plugin-sass',
         'gatsby-plugin-theme-ui',
         {
             resolve: `gatsby-plugin-manifest`,

@@ -3,7 +3,7 @@ var plugins = [{
       options: {"plugins":[],"projectId":"olstal9u","dataset":"portfolio","watchMode":true},
     },{
       plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
-      options: {"plugins":[],"fonts":["Poppins","Open Sans","source sans pro:300,400,400i,700"]},
+      options: {"plugins":[],"fonts":["Josefin Sans","Poppins","Open Sans","source sans pro:300,400,400i,700"]},
     },{
       plugin: require('D:/HUNGRY BEAR STUDIO/hungry-bear-studio/web/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
