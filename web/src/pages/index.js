@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import Layout from './../components/layout';
+import Layout from '../components/layout';
 import Main from '../components/main';
 import SEO from 'gatsby-theme-seo/src/components/seo';
 import { graphql, useStaticQuery } from 'gatsby';
