@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import Layout from './../components/layout';
+import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import Main from '../components/main';
 import Footer from '../components/footer';
