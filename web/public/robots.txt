@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://hungrybearstudio.com/sitemap.xml
+Host: https://hungrybearstudio.com
