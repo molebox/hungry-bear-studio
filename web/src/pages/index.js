@@ -1,17 +1,16 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
-import Main from '../components/main';
-import SEO from 'gatsby-theme-seo/src/components/seo';
-import { graphql, useStaticQuery } from 'gatsby';
-import PortableText from '@sanity/block-content-to-react';
-
 import Gatsby from '../assets/gatsby.svg';
 import ReactJs from '../assets/react-icon.svg';
 import Sanity from '../assets/sanity_logo_red.svg';
 import Expo from '../assets/expo.svg';
 import Firebase from '../assets/firebase.svg';
+import Layout from '../components/layout';
+import Main from '../components/main';
+import SEO from 'gatsby-theme-seo/src/components/seo';
+import { graphql, useStaticQuery } from 'gatsby';
+import PortableText from '@sanity/block-content-to-react';
 
 const SEODescription = `
 Hello my name is Richard Haines, I work under the moniker Hungry Bear Studio. I’m a web and mobile
