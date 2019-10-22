@@ -1,11 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import Gatsby from '../assets/gatsby.svg';
-import ReactJs from '../assets/react-icon.svg';
-import Sanity from '../assets/sanity_logo_red.svg';
-import Expo from '../assets/expo.svg';
-import Firebase from '../assets/firebase.svg';
+import { GatsbyIcon, ReactIcon, FirebaseIcon, ExpoIcon, SanityIcon, ArrowDown } from '../components/icons';
 import Layout from '../components/layout';
 import Main from '../components/main';
 import SEO from 'gatsby-theme-seo/src/components/seo';
@@ -25,7 +21,7 @@ const Container = styled.section`
 
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
 
 	height: 100vh;
 	width: 100%;
@@ -37,7 +33,7 @@ const Logo = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evently;
+	justify-content: space-evenly;
 	margin-top: 3em;
 
 	& > h1 {
@@ -63,6 +59,9 @@ const Logo = styled.div`
 	@media (min-width: 48em) {
 		grid-row: 2;
 		grid-column: 2/5;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
 
 		&::before {
 			content: '';
@@ -86,7 +85,7 @@ const Logo = styled.div`
 
 const YellowBox = styled.div`
 	grid-column: 3/6;
-	grid-row: 2;
+	grid-row: 2/4;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -129,47 +128,25 @@ const YellowBox = styled.div`
 
 const Email = styled.div`
 	grid-column: 2/6;
-	grid-row: 3;
+	grid-row: 4;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #fff226;
 	position: relative;
 	margin-top: 1em;
+	cursor: pointer;
+	border: 1px solid black;
 
-	height: 35%;
+	height: 55%;
 
 	& > h3 {
-		font-size: 10px;
+		font-size: 8px;
 		font-weight: bold;
 	}
 
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		border: 1px solid black;
-	}
-
-	&::before {
-		top: 1rem;
-		bottom: 1rem;
-		left: 1rem;
-	}
-
-	&::after {
-		bottom: 1rem;
-		left: 1rem;
-		right: 1rem;
-	}
-
-	& > h3 {
-		transition: all 0.5s ease;
-	}
-
-	& > h3:hover {
-		font-size: 25px;
-		cursor: pointer;
+	&:active {
+		box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
 	}
 
 	/* 48em = 768px DESKTOP */
@@ -177,6 +154,7 @@ const Email = styled.div`
 		grid-column: 2/4;
 		grid-row: 3;
 		height: 40%;
+		margin-top: 3em;
 
 		& > h3 {
 			font-size: 20px;
@@ -223,6 +201,7 @@ const Projects = styled.section`
 	/* 48em = 768px DESKTOP */
 	@media (min-width: 48em) {
 		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
 		&::before,
 		&::after {
 			content: '';
@@ -324,7 +303,7 @@ const ProjectDetails = styled.div`
 
 const IconContainer = styled.div`
 	display: flex;
-	width: 60%;
+	width: 70%;
 	justify-content: space-evenly;
 	align-items: center;
 	margin-bottom: 1em;
@@ -338,54 +317,62 @@ const IconContainer = styled.div`
 	}
 `;
 
-const GatsbyIcon = () => (
-	<Gatsby
-		sx={{
-			width: '1.5em',
-			height: '1.5em',
-			fill: '#362066',
-		}}
-	/>
-);
+const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 2em;
+	width: 80%;
 
-const FirebaseIcon = () => (
-	<Firebase
-		sx={{
-			width: '1.5em',
-			height: '1.5em',
-			fill: '#FFCA28',
-		}}
-	/>
-);
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		width: 100%;
+	}
+`;
 
-const ReactIcon = () => (
-	<ReactJs
-		sx={{
-			width: '1.5em',
-			height: '1.5em',
-			fill: 'black',
-		}}
-	/>
-);
+const Button = styled.a`
+	background: #fff226;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	font-size: 0.7em;
+	padding: 1.2em;
+	box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	cursor: pointer;
+	margin-bottom: 1em;
 
-const SanityIcon = () => (
-	<Sanity
-		sx={{
-			width: '1.5em',
-			height: '1.5em',
-			fill: 'red',
-		}}
-	/>
-);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #000000;
 
-const ExpoIcon = () => (
-	<Expo
-		sx={{
-			width: '1.5em',
-			height: '1.5em',
-		}}
-	/>
-);
+	&:hover {
+		background: #d1c720;
+	}
+
+	&:active {
+		background: #fff561;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		width: 130px;
+		height: 40px;
+		font-size: 1em;
+		padding: 1.2em;
+	}
+`;
+
+const Triangle = styled.div`
+	grid-column: 4;
+	grid-row: 4;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 100px solid #fff561;
+`;
 
 const Index = () => {
 	const projects = useStaticQuery(query);
@@ -449,10 +436,11 @@ const Index = () => {
 							roar@hungrybearstudio.com
 						</h3>
 					</Email>
+					<Triangle />
 				</Container>
 				<Projects>
 					{projectList.map(({ node }) => (
-						<ProjectCard>
+						<ProjectCard key={node.title}>
 							<ProjectDetails>
 								<h4
 									sx={{
@@ -485,6 +473,44 @@ const Index = () => {
 										}
 									})}
 								</IconContainer>
+								<ButtonContainer>
+									{node.githubLink ? (
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.githubLink}
+										>
+											VIEW CODE
+										</Button>
+									) : null}
+									{node.exampleSiteLink ? (
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.exampleSiteLink}
+										>
+											VIEW SITE
+										</Button>
+									) : null}
+									{node.packageLink ? (
+										<Button
+											sx={{
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												textDecoration: 'none',
+											}}
+											href={node.packageLink}
+										>
+											VIEW NPM
+										</Button>
+									) : null}
+								</ButtonContainer>
 							</ProjectDetails>
 						</ProjectCard>
 					))}
