@@ -21,10 +21,22 @@ const Container = styled.section`
 
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 
 	height: 100vh;
 	width: 100%;
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		position: relative;
+
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+
+		height: 100vh;
+		width: 100%;
+	}
 `;
 
 const Logo = styled.div`
@@ -140,13 +152,19 @@ const Email = styled.div`
 
 	height: 55%;
 
-	& > h3 {
-		font-size: 8px;
+	& > a > h3 {
+		font-size: 10px;
 		font-weight: bold;
 	}
 
-	&:active {
+	&:hover {
 		box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+	}
+
+	&:active {
+		& > a > h3 {
+			font-weight: bold;
+		}
 	}
 
 	/* 48em = 768px DESKTOP */
@@ -155,18 +173,29 @@ const Email = styled.div`
 		grid-row: 3;
 		height: 40%;
 		margin-top: 3em;
+		cursor: pointer;
 
-		& > h3 {
+		& > a > h3 {
 			font-size: 20px;
 		}
 
-		& > h3 {
+		& > a > h3 {
 			transition: all 0.5s ease;
 		}
 
-		& > h3:hover {
-			font-size: 25px;
-			cursor: pointer;
+		& > a > h3:hover {
+			font-size: 22px;
+		}
+
+		&:hover {
+			box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
+		}
+
+		&:active {
+			& > a > h3 {
+				font-size: 8px;
+				font-weight: bold;
+			}
 		}
 	}
 `;
@@ -365,13 +394,49 @@ const Button = styled.a`
 `;
 
 const Triangle = styled.div`
+	position: relative;
+
 	grid-column: 4;
-	grid-row: 4;
+	grid-row: 5;
 	width: 0;
 	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-top: 100px solid #fff561;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 70px solid black;
+
+	animation: spring 2s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+
+	@keyframes spring {
+		0% {
+			transform: scale(1) translateY(0);
+		}
+		10% {
+			transform: scale(1.2, 0.6);
+		}
+		30% {
+			transform: scale(0.8, 1.1) translateY(-50px);
+		}
+		50% {
+			transform: scale(1) translateY(0);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		grid-column: 4;
+		grid-row: 4;
+
+		width: 0;
+		height: 0;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		border-top: 100px solid black;
+	}
 `;
 
 const Index = () => {
@@ -424,17 +489,24 @@ const Index = () => {
 						</ul>
 					</YellowBox>
 					<Email>
-						<h3
+						<a
 							sx={{
-								fontFamily: 'heading',
-								letterSpacing: 'body',
-								color: 'darkText',
-								fontWeight: 'body',
-								wordWrap: 'break-word',
+								textDecoration: 'none',
 							}}
+							href="mailto:roar@hungrybearstudio.com"
 						>
-							roar@hungrybearstudio.com
-						</h3>
+							<h3
+								sx={{
+									fontFamily: 'heading',
+									letterSpacing: 'body',
+									color: 'darkText',
+									fontWeight: 'body',
+									wordWrap: 'break-word',
+								}}
+							>
+								roar@hungrybearstudio.com
+							</h3>
+						</a>
 					</Email>
 					<Triangle />
 				</Container>
