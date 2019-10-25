@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { GatsbyIcon, ReactIcon, FirebaseIcon, ExpoIcon, SanityIcon, ArrowDown } from '../components/icons';
+import { GatsbyIcon, ReactIcon, FirebaseIcon, ExpoIcon, SanityIcon } from '../components/icons';
 import Layout from '../components/layout';
 import Main from '../components/main';
 import SEO from 'gatsby-theme-seo/src/components/seo';
@@ -49,12 +49,12 @@ const Logo = styled.div`
 	margin-top: 3em;
 
 	& > h1 {
-		font-size: 25px;
+		font-size: 2em;
 		z-index: 10;
 	}
 
 	& > h2 {
-		font-size: 20px;
+		font-size: 1em;
 		z-index: 100;
 	}
 
@@ -63,7 +63,7 @@ const Logo = styled.div`
 		position: absolute;
 		background-color: #fff226;
 		width: 5em;
-		height: 8em;
+		height: 13em;
 		z-index: 10;
 	}
 
@@ -90,6 +90,8 @@ const Logo = styled.div`
 		}
 
 		& > h2 {
+			font-size: 1.3em;
+			margin-right: 0.5em;
 			z-index: 10;
 		}
 	}
@@ -105,7 +107,7 @@ const YellowBox = styled.div`
 	position: relative;
 
 	& > ul > li {
-		font-size: 1em;
+		font-size: 0.8em;
 	}
 
 	&::before,
@@ -133,7 +135,7 @@ const YellowBox = styled.div`
 		grid-row: 2;
 
 		& > ul > li {
-			font-size: 1.5em;
+			font-size: 1.2em;
 		}
 	}
 `;
@@ -335,7 +337,6 @@ const IconContainer = styled.div`
 	width: 70%;
 	justify-content: space-evenly;
 	align-items: center;
-	margin-bottom: 1em;
 
 	/* 48em = 768px DESKTOP */
 	@media (min-width: 48em) {
@@ -351,6 +352,7 @@ const ButtonContainer = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 	margin-top: 2em;
+	margin-bottom: 1em;
 	width: 80%;
 
 	/* 48em = 768px DESKTOP */
@@ -395,6 +397,7 @@ const Button = styled.a`
 
 const Triangle = styled.div`
 	position: relative;
+	cursor: pointer;
 
 	grid-column: 4;
 	grid-row: 5;
@@ -436,6 +439,75 @@ const Triangle = styled.div`
 		border-left: 50px solid transparent;
 		border-right: 50px solid transparent;
 		border-top: 100px solid black;
+	}
+`;
+
+const Twitter = styled.a`
+	font-size: 14px;
+	color: #000000;
+	grid-column: 2;
+	grid-row: 5;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 15%;
+		padding-top: 2em;
+		border-bottom: 2px solid black;
+		transition: 0.5s;
+		position: absolute;
+		z-index: 10000;
+	}
+
+	&:hover::after {
+		width: 20%;
+		position: absolute;
+	}
+
+	/* 48em = 768px DESKTOP */
+	@media (min-width: 48em) {
+		font-size: 20px;
+		color: #000000;
+		grid-column: 2;
+		grid-row: 4;
+		cursor: pointer;
+
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-start;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 15%;
+			padding-top: 2em;
+			border-bottom: 2px solid black;
+			transition: 0.5s;
+			position: absolute;
+			z-index: 10000;
+		}
+
+		&:hover::after {
+			width: 20%;
+			position: absolute;
+		}
+	}
+`;
+
+const OuterTriangle = styled.a`
+	grid-column: 4;
+	grid-row: 5;
+	cursor: pointer;
+
+	@media (min-width: 48em) {
+		grid-column: 4;
+		grid-row: 4;
+		cursor: pointer;
 	}
 `;
 
@@ -484,6 +556,7 @@ const Index = () => {
 							<li key="JavaScript">JavaScript</li>
 							<li key="React">React</li>
 							<li key="Gatsby">Gatsby</li>
+							<li key="GraphQL">GraphQL</li>
 							<li key="Expo">Expo</li>
 							<li key="Sanity">Sanity</li>
 						</ul>
@@ -493,6 +566,7 @@ const Index = () => {
 							sx={{
 								textDecoration: 'none',
 							}}
+							name="email_link"
 							href="mailto:roar@hungrybearstudio.com"
 						>
 							<h3
@@ -508,9 +582,27 @@ const Index = () => {
 							</h3>
 						</a>
 					</Email>
-					<Triangle />
+					<OuterTriangle name="project_link" href="#projectsSection">
+						<Triangle />
+					</OuterTriangle>
+					<Twitter
+						name="twitter_link"
+						href="https://twitter.com/studio_hungry"
+						sx={{
+							textDecoration: 'none',
+						}}
+					>
+						<h4
+							sx={{
+								fontFamily: 'heading',
+								fontWeight: 'body',
+							}}
+						>
+							@studio_hungry
+						</h4>
+					</Twitter>
 				</Container>
-				<Projects>
+				<Projects id="projectsSection">
 					{projectList.map(({ node }) => (
 						<ProjectCard key={node.title}>
 							<ProjectDetails>
@@ -526,22 +618,22 @@ const Index = () => {
 								<IconContainer>
 									{node.stack.map((item) => {
 										if (item === 'Gatsby') {
-											return <GatsbyIcon />;
+											return <GatsbyIcon key="gatsbyIcon" />;
 										}
 										if (item === 'Expo') {
-											return <ExpoIcon />;
+											return <ExpoIcon key="expoIcon" />;
 										}
 
 										if (item === 'Firebase') {
-											return <FirebaseIcon />;
+											return <FirebaseIcon key="firebaseIcon" />;
 										}
 
 										if (item === 'Sanity') {
-											return <SanityIcon />;
+											return <SanityIcon key="sanityIcon" />;
 										}
 
 										if (item === 'React') {
-											return <ReactIcon />;
+											return <ReactIcon key="reactIcon" />;
 										}
 									})}
 								</IconContainer>

@@ -5,7 +5,6 @@ import ReactJs from '../assets/react-icon.svg';
 import Sanity from '../assets/sanity_logo_red.svg';
 import Expo from '../assets/expo.svg';
 import Firebase from '../assets/firebase.svg';
-import Arrow from '../assets/arrow-down.svg';
 
 export const GatsbyIcon = () => (
 	<Gatsby
@@ -52,17 +51,6 @@ export const ExpoIcon = () => (
 		sx={{
 			width: '2em',
 			height: '2em',
-		}}
-	/>
-);
-
-export const ArrowDown = () => (
-	<Arrow
-		sx={{
-			gridColumn: '4',
-			gridRow: '4',
-			height: 40,
-			width: 40,
 		}}
 	/>
 );

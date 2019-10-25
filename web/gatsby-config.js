@@ -8,7 +8,7 @@ require("dotenv").config({
 module.exports = {
     siteMetadata: {
         title: 'Hungry Bear Studio',
-        description: 'Hungry Bear Studio Web and Mobile Design',
+        description: 'Hello Im Richard Haines. Im a software developer who specializes in frontend and mobile development.',
         siteUrl: 'https://hungrybearstudio.com',
         twitter: 'studio_hungry'
     },
@@ -39,7 +39,7 @@ module.exports = {
             resolve: 'gatsby-theme-seo', 
             options: {
                 title: 'Hungry Bear Studio',
-                description: 'Hungry Bear Studio Web and Mobile Design',
+                description: 'Hello Im Richard Haines. Im a software developer who specializes in frontend and mobile development.',
                 author: 'Rich Haines',
                 siteUrl: 'https://hungrybearstudio.com',
                 social: {
@@ -65,7 +65,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-              name: `Hungry Bear Studio Web and Mobile Design`,
+              name: `Hungry Bear Studio Web and Mobile Development`,
               short_name: `Hungry Bear Studio`,
               start_url: `/`,
               background_color: `#A5A5A5`,
