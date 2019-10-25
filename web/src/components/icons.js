@@ -31,7 +31,6 @@ export const ReactIcon = () => (
 		sx={{
 			width: '2em',
 			height: '2em',
-			fill: 'black',
 		}}
 	/>
 );
@@ -41,7 +40,6 @@ export const SanityIcon = () => (
 		sx={{
 			width: '3em',
 			height: '3em',
-			fill: 'red',
 		}}
 	/>
 );
