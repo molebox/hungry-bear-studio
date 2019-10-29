@@ -9,9 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import PortableText from '@sanity/block-content-to-react';
 
 const SEODescription = `
-Hello my name is Richard Haines, I work under the moniker Hungry Bear Studio. I’m a web and mobile
-developer based in the north of Sweden. I love the creative process of taking an idea from design to
-finished solution.
+	Hello I'm Richard Haines. I'm a software developer who specializes in frontend and mobile development.
 `;
 
 const SEOKeywords = ['Web Developer', 'Mobile Developer', 'React', 'Gatsby', 'Expo', 'React Native'];
@@ -163,12 +161,6 @@ const Email = styled.div`
 		box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
 	}
 
-	&:active {
-		& > a > h3 {
-			font-weight: bold;
-		}
-	}
-
 	/* 48em = 768px DESKTOP */
 	@media (min-width: 48em) {
 		grid-column: 2/4;
@@ -181,23 +173,8 @@ const Email = styled.div`
 			font-size: 20px;
 		}
 
-		& > a > h3 {
-			transition: all 0.5s ease;
-		}
-
-		& > a > h3:hover {
-			font-size: 22px;
-		}
-
 		&:hover {
 			box-shadow: 3px 4px 9px 2px hsla(0, 0%, 0%, 0.25);
-		}
-
-		&:active {
-			& > a > h3 {
-				font-size: 8px;
-				font-weight: bold;
-			}
 		}
 	}
 `;
@@ -233,6 +210,7 @@ const Projects = styled.section`
 	@media (min-width: 48em) {
 		grid-template-columns: repeat(2, 1fr);
 		justify-items: center;
+
 		&::before,
 		&::after {
 			content: '';
