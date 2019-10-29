@@ -1,7 +1,7 @@
 # Hungry Bear Studio Portfolio
 A portfolio site to showcase my projects, design style and contact information. Built with Gatsby, Emotion CSS in JS and Sanity.
 
-[Live site:](https://www.hungrybearstudio.com/)
+[Live site: https://www.hungrybearstudio.com/](https://www.hungrybearstudio.com/)
 
 ## Built With
 
