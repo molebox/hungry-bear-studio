@@ -60,7 +60,7 @@ module.exports = {
         `gatsby-plugin-emotion`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-robots-txt`,
-        'gatsby-plugin-sass',
+        'gatsby-theme-hbs-mdx',
         'gatsby-plugin-theme-ui',
         {
             resolve: `gatsby-plugin-manifest`,
