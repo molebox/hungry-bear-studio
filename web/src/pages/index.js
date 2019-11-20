@@ -5,7 +5,7 @@ import { GatsbyIcon, ReactIcon, FirebaseIcon, ExpoIcon, SanityIcon } from '../co
 import Layout from '../components/layout';
 import Main from '../components/main';
 import SEO from 'gatsby-theme-seo/src/components/seo';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import PortableText from '@sanity/block-content-to-react';
 
 const SEODescription = `
@@ -19,7 +19,7 @@ const Container = styled.section`
 
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(5, 1fr);
+	grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
 
 	height: 100vh;
 	width: 100%;
@@ -38,7 +38,7 @@ const Container = styled.section`
 `;
 
 const Logo = styled.div`
-	grid-row: 1;
+	grid-row: 2;
 	grid-column: 2/6;
 
 	display: flex;
@@ -97,7 +97,7 @@ const Logo = styled.div`
 
 const YellowBox = styled.div`
 	grid-column: 3/6;
-	grid-row: 2/4;
+	grid-row: 3/4;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -381,9 +381,9 @@ const Triangle = styled.div`
 	grid-row: 5;
 	width: 0;
 	height: 0;
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-top: 70px solid black;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 50px solid black;
 
 	animation: spring 2s;
 	animation-timing-function: ease;
@@ -414,9 +414,9 @@ const Triangle = styled.div`
 
 		width: 0;
 		height: 0;
-		border-left: 50px solid transparent;
-		border-right: 50px solid transparent;
-		border-top: 100px solid black;
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		border-top: 70px solid black;
 	}
 `;
 
@@ -486,6 +486,41 @@ const OuterTriangle = styled.a`
 		grid-column: 4;
 		grid-row: 4;
 		cursor: pointer;
+	}
+`;
+
+const Blog = styled.div`
+	display: flex;
+	align-items: center;
+	grid-row: 1;
+	grid-column: 2;
+	cursor: pointer;
+	margin-top: 2em;
+
+	& > a > h5 {
+		font-size: 1.2em;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		width: 5%;
+		padding-top: 2em;
+		border-bottom: 2px solid black;
+		transition: 0.5s;
+		position: absolute;
+		z-index: 10000;
+	}
+
+	&:hover::after {
+		width: 7%;
+		position: absolute;
+	}
+
+	@media (min-width: 48em) {
+		& > a > h5 {
+			font-size: 1.5em;
+		}
 	}
 `;
 
@@ -579,6 +614,26 @@ const Index = () => {
 							@studio_hungry
 						</h4>
 					</Twitter>
+					<Blog>
+						<Link
+							sx={{
+								textDecoration: 'none',
+							}}
+							to="/blogIndex"
+						>
+							<h5
+								sx={{
+									fontFamily: 'heading',
+									letterSpacing: 'body',
+									color: 'darkText',
+									fontWeight: 'body',
+									paddingBottom: '1em',
+								}}
+							>
+								Blog
+							</h5>
+						</Link>
+					</Blog>
 				</Container>
 				<Projects id="projectsSection">
 					{projectList.map(({ node }) => (
