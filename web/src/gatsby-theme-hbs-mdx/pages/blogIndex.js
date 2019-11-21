@@ -234,9 +234,9 @@ const BlogIndex = ({ data }) => {
 							{posts.map(({ node: post }) => (
 								<PostBox
 									sx={{
-										borderColor: 'lightGrey',
+										borderColor: 'black',
 										borderStyle: 'solid',
-										borderBlockWidth: '0.1em',
+										borderWidth: '1px',
 									}}
 								>
 									<li key={post.id}>
