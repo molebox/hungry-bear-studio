@@ -501,15 +501,28 @@ const Blog = styled.div`
 		font-size: 1.2em;
 	}
 
-	&::after {
-		content: '';
-		display: block;
-		width: 5%;
-		padding-top: 2em;
-		border-bottom: 2px solid black;
-		transition: 0.5s;
+	&:hover::after {
+		width: 7%;
 		position: absolute;
-		z-index: 10000;
+	}
+
+	@media (min-width: 48em) {
+		& > a > h5 {
+			font-size: 1.5em;
+		}
+	}
+`;
+
+const JustAskDev = styled.div`
+	display: flex;
+	align-items: center;
+	grid-row: 1;
+	grid-column: 3;
+	cursor: pointer;
+	margin-top: 2em;
+
+	& > a > h5 {
+		font-size: 1.2em;
 	}
 
 	&:hover::after {
@@ -611,7 +624,7 @@ const Index = () => {
 								fontWeight: 'body',
 							}}
 						>
-							@studio_hungry
+							Twitter: @studio_hungry
 						</h4>
 					</Twitter>
 					<Blog>
@@ -634,6 +647,26 @@ const Index = () => {
 							</h5>
 						</Link>
 					</Blog>
+					<JustAskDev>
+						<a
+							sx={{
+								textDecoration: 'none',
+							}}
+							href="https://justask.dev/"
+						>
+							<h5
+								sx={{
+									fontFamily: 'heading',
+									letterSpacing: 'body',
+									color: 'darkText',
+									fontWeight: 'body',
+									paddingBottom: '1em',
+								}}
+							>
+								justask.dev
+							</h5>
+						</a>
+					</JustAskDev>
 				</Container>
 				<Projects id="projectsSection">
 					{projectList.map(({ node }) => (
