@@ -22,7 +22,7 @@ const Container = styled.section`
 
 	height: 100vh;
 	margin: 1em auto;
-	max-width: 80%;
+	max-width: 60%;
 `;
 
 const Header = styled.header`

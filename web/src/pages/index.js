@@ -430,6 +430,10 @@ const Twitter = styled.a`
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-start;
+	
+	& > h4 {
+		font-size: 1.1em;
+	}
 
 	&::after {
 		content: '';
@@ -566,7 +570,7 @@ const Index = () => {
 								wordWrap: 'break-word',
 							}}
 						>
-							Hello I'm Richard Haines. I'm a software developer who specializes in frontend and mobile development.
+							Hello I'm Richard Haines. I'm a software developer who specializes in frontend development with a focus on the JAMstack.
 						</h2>
 					</Logo>
 					<YellowBox>
@@ -583,7 +587,6 @@ const Index = () => {
 							<li key="React">React</li>
 							<li key="Gatsby">Gatsby</li>
 							<li key="GraphQL">GraphQL</li>
-							<li key="Expo">Expo</li>
 							<li key="Sanity">Sanity</li>
 						</ul>
 					</YellowBox>
