@@ -54,7 +54,7 @@ module.exports = {
                 include: /assets/
               }
           }
-      },
+        },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         `gatsby-plugin-emotion`,
